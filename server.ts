@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-import app from './app';
+import app from './Server/Config/app';
 import debug from 'debug'
 debug('mdev1012-m2023-portfolio:server');
 import http from 'http';
