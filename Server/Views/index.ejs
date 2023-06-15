@@ -13,49 +13,18 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="navbar bg-dark border-bottom border-bottom-dark navbar-expand-lg bg-body-tertiary mb-4" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="fa-solid fa-chess-rook fa-lg"></i> MDEV1012</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-2">
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/home"><i class="fa-solid fa-house"></i> Home</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/about"><i class="fa-solid fa-circle-info"></i> About</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/services"><i class="fa-solid fa-signs-post"></i> Services</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/projects"><i class="fa-solid fa-mobile-retro"></i> Projects</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-message"></i> Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%- include('./components/navbar.ejs'); %>
   </header>
 
   <!-- Main Content-->
   <main>
-    <div class="container">
-      <h1> Welcome to <%= title %> page</h1>
-    </div>
+    <%- include('./content/' + page + '.ejs'); %>
   </main>
   
   <!-- Footer -->
-  <footer></footer>
+  <footer>
+    <%- include('./components/footer.ejs'); %>
+  </footer>
 
   <!-- Script Section -->
   <script src="/jquery/dist/jquery.min.js"></script>
