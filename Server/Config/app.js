@@ -10,9 +10,9 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const morgan_1 = __importDefault(require("morgan"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const db_1 = __importDefault(require("./db"));
-mongoose_1.default.connect(db_1.default.LocalURI);
+mongoose_1.default.connect(db_1.default.RemoteURI);
 mongoose_1.default.connection.on('connected', () => {
-    console.log(`Connected to ${db_1.default.LocalURI}`);
+    console.log(`Connected to MongoDB`);
 });
 mongoose_1.default.connection.on('error', (err) => {
     console.log(`Error: ${err}`);

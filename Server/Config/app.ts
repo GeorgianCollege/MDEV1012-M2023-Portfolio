@@ -10,11 +10,11 @@ import mongoose from 'mongoose';
 import DB from './db';
 
 // Connect to the DB with the DB.LocalURI
-mongoose.connect(DB.LocalURI);
+mongoose.connect(DB.RemoteURI);
 
 // create a db connection event
 mongoose.connection.on('connected', () =>{
-  console.log(`Connected to ${DB.LocalURI}`);
+  console.log(`Connected to MongoDB`);
 });
 
 // create an error event
