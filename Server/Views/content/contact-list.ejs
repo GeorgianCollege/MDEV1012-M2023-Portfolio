@@ -1,0 +1,27 @@
+<!-- Create a contact list in a table format using ejs syntaxt -->
+<div class="container">
+  <h1>Contact List</h1>
+  <table class="table table-striped table-hover table-bordered border-dark">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Contact Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contacts.forEach(function(contact) { %>
+        <tr>
+          <td><%= contact.FirstName %></td>
+          <td><%= contact.LastName %></td>
+          <td><%= contact.EmailAddress %></td>
+          <td><%= contact.ContactNumber %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+</div>
+
