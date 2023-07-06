@@ -1,0 +1,26 @@
+[
+  {
+    "FirstName": "Tom",
+    "LastName": "Tsiliopoulos",
+    "EmailAddress": "tom@example.com",
+    "ContactNumber": "4165555555"
+  },
+  {
+    "FirstName": "Tony",
+    "LastName": "Stark",
+    "EmailAddress": "ironman@example.com",
+    "ContactNumber": "4165555556"
+  },
+  {
+    "FirstName": "Peter",
+    "LastName": "Parker",
+    "EmailAddress": "spider-man@example.com",
+    "ContactNumber": "4165555557"
+  },
+  {
+    "FirstName": "Bruce",
+    "LastName": "Banner",
+    "EmailAddress": "thehulk@example.com",
+    "ContactNumber": "4165555558"
+  }
+]
