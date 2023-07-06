@@ -5,6 +5,23 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
+// DB Modules
+import mongoose from 'mongoose';
+import DB from './db';
+
+// Connect to the DB with the DB.LocalURI
+mongoose.connect(DB.LocalURI);
+
+// create a db connection event
+mongoose.connection.on('connected', () =>{
+  console.log(`Connected to ${DB.LocalURI}`);
+});
+
+// create an error event
+mongoose.connection.on('error', (err) =>{
+  console.log(`Error: ${err}`);
+});
+
 import indexRouter from '../Routes/index';
 
 let app = express();
@@ -23,13 +40,13 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) 
+app.use(function(req, res, next)
 {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err: HttpError, req: any, res: any, next: NextFunction): void 
+app.use(function(err: HttpError, req: any, res: any, next: NextFunction): void
 {
   // set locals, only providing error in development
   res.locals.message = err.message;
