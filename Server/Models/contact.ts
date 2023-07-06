@@ -40,4 +40,4 @@ const ContactSchema = new Schema<IContact>
 });
 
 // create a Contact Model from the Contact Schema
-export const Contact = mongoose.model<IContact>("Contact", ContactSchema);
+export default mongoose.model<IContact>("Contact", ContactSchema);
