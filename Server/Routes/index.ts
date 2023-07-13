@@ -7,6 +7,11 @@ import { DisplayHomePage, DisplayAboutPage, DisplayServicesPage, DisplayProjects
 // import the Contact controller
 import { DisplayContactListPage } from '../Controllers/contact';
 
+// import the auth controller
+import { ProcessLogin, DisplayLoginPage, ProcessLogout, DisplayRegisterPage, ProcessRegister } from '../Controllers/auth';
+
+/*********************** TOP-LEVEL ROUTES ***********************/
+
 /* GET Default Route */
 router.get('/', (req, res, next) => DisplayHomePage(req, res, next) );
 
@@ -24,6 +29,26 @@ router.get('/projects', (req, res, next) => DisplayProjectsPage(req, res, next) 
 
 /* GET Contact Page */
 router.get('/contact', (req, res, next) => DisplayContactPage(req, res, next) );
+
+/******************  AUTHENTICATION ROUTES *******************************/
+
+/* Process the login request */
+router.post('/login', ProcessLogin);
+
+/* Display the Login Page */
+router.get('/login', DisplayLoginPage);
+
+/* Process the register request */
+router.post('/register', ProcessRegister);
+
+/* Display the Register Page */
+router.get('/register', DisplayRegisterPage);
+
+/* Process the logout request */
+router.get('/logout', ProcessLogout);
+
+
+/***************** CONTACT MANAGEMENT ROUTES ****************/
 
 /* GET Contact List page - with /contact-list */
 router.get('/contact-list', (req, res, next) => DisplayContactListPage(req, res, next) );
