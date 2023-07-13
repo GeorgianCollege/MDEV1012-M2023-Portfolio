@@ -13,6 +13,7 @@ import DB from './db';
 import session from 'express-session'; // use session
 import passport from 'passport'; // authentication
 import passportLocal from 'passport-local'; // authentication strategy
+import flash from 'connect-flash'; // auth messaging
 
 // authentication objects
 let localStrategy = passportLocal.Strategy; // alias
@@ -53,6 +54,9 @@ app.use(session({
   saveUninitialized: false,
   resave: false
 }));
+
+// initialize flash
+app.use(flash());
 
 // initialize passport
 app.use(passport.initialize());

@@ -7,7 +7,7 @@ exports.ProcessLogout = exports.ProcessRegister = exports.DisplayRegisterPage = 
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 function DisplayLoginPage(req, res, next) {
-    res.render('index', { title: 'Login', page: 'login' });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function ProcessLogin(req, res, next) {
@@ -18,6 +18,7 @@ function ProcessLogin(req, res, next) {
         }
         if (!user) {
             console.log("ERROR: Authentication Error");
+            req.flash('loginMessage', 'Authentication Error');
             return res.redirect('/login');
         }
         req.logIn(user, (err) => {
@@ -32,7 +33,7 @@ function ProcessLogin(req, res, next) {
 }
 exports.ProcessLogin = ProcessLogin;
 function DisplayRegisterPage(req, res, next) {
-    res.render('index', { title: 'Register', page: 'register' });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage') });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessRegister(req, res, next) {
@@ -47,8 +48,10 @@ function ProcessRegister(req, res, next) {
                 console.error('ERROR: User Already Exists!');
             }
             console.error(err.name);
+            req.flash('registerMessage', 'Registration Error');
             return res.redirect('/register');
         }
+        req.flash('loginMessage', 'User Registered Successfully');
         return res.redirect('/login');
     });
 }

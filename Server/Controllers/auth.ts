@@ -6,7 +6,7 @@ import User from '../Models/user';
 
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction)
 {
-    res.render('index', { title: 'Login', page: 'login' });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
 }
 
 // Process Functions
@@ -25,6 +25,7 @@ export function ProcessLogin(req: Request, res: Response, next: NextFunction): v
         if(!user)
         {
             console.log("ERROR: Authentication Error")
+            req.flash('loginMessage', 'Authentication Error');
             return res.redirect('/login');
         }
 
@@ -45,7 +46,7 @@ export function ProcessLogin(req: Request, res: Response, next: NextFunction): v
 
 export function DisplayRegisterPage(req: Request, res: Response, next: NextFunction)
 {
-    res.render('index', { title: 'Register', page: 'register' });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage') });
 }
 
 
@@ -68,8 +69,10 @@ export function ProcessRegister(req: Request, res: Response, next: NextFunction)
                 console.error('ERROR: User Already Exists!');
             }
             console.error(err.name); // other error
+            req.flash('registerMessage', 'Registration Error');
             return res.redirect('/register');
         }
+        req.flash('loginMessage', 'User Registered Successfully');
         return res.redirect('/login');
     });
 }

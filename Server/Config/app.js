@@ -13,6 +13,7 @@ const db_1 = __importDefault(require("./db"));
 const express_session_1 = __importDefault(require("express-session"));
 const passport_1 = __importDefault(require("passport"));
 const passport_local_1 = __importDefault(require("passport-local"));
+const connect_flash_1 = __importDefault(require("connect-flash"));
 let localStrategy = passport_local_1.default.Strategy;
 const user_1 = __importDefault(require("../Models/user"));
 mongoose_1.default.connect(db_1.default.RemoteURI);
@@ -37,6 +38,7 @@ app.use((0, express_session_1.default)({
     saveUninitialized: false,
     resave: false
 }));
+app.use((0, connect_flash_1.default)());
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
 passport_1.default.use(user_1.default.createStrategy());
