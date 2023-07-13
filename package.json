@@ -37,6 +37,7 @@
     "@types/debug": "^4.1.8",
     "@types/ejs": "^3.1.2",
     "@types/express": "^4.17.17",
+    "@types/express-session": "^1.17.7",
     "@types/http-errors": "^2.0.1",
     "@types/jquery": "^3.5.16",
     "@types/morgan": "^1.9.4",

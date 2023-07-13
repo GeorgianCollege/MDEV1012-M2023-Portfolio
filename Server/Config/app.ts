@@ -9,6 +9,16 @@ import logger from 'morgan';
 import mongoose from 'mongoose';
 import DB from './db';
 
+// modules for authentication
+import session from 'express-session'; // use session
+import passport from 'passport'; // authentication
+import passportLocal from 'passport-local'; // authentication strategy
+
+// authentication objects
+let localStrategy = passportLocal.Strategy; // alias
+// import User Model
+import User from '../Models/user'
+
 // Connect to the DB with the DB.LocalURI
 mongoose.connect(DB.RemoteURI);
 
