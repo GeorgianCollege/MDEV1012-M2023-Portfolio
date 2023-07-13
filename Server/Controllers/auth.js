@@ -25,7 +25,7 @@ function ProcessLogin(req, res, next) {
                 console.error(err);
                 res.end(err);
             }
-            return res.redirect('/login');
+            return res.redirect('/contact-list');
         });
         return;
     })(req, res, next);
@@ -38,8 +38,8 @@ exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessRegister(req, res, next) {
     let newUser = new user_1.default({
         username: req.body.username,
-        EmailAddress: req.body.emailAddress,
-        DisplayName: req.body.firstName + " " + req.body.lastName
+        emailAddress: req.body.emailAddress,
+        displayName: req.body.firstName + " " + req.body.lastName
     });
     user_1.default.register(newUser, req.body.password, (err) => {
         if (err) {

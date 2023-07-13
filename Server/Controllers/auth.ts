@@ -37,7 +37,7 @@ export function ProcessLogin(req: Request, res: Response, next: NextFunction): v
                 res.end(err);
             }
 
-            return res.redirect('/login');
+            return res.redirect('/contact-list');
         });
         return;
     })(req, res, next);
@@ -55,8 +55,8 @@ export function ProcessRegister(req: Request, res: Response, next: NextFunction)
     let newUser = new User
     ({
         username: req.body.username,
-        EmailAddress: req.body.emailAddress,
-        DisplayName: req.body.firstName + " " + req.body.lastName
+        emailAddress: req.body.emailAddress,
+        displayName: req.body.firstName + " " + req.body.lastName
     });
 
     User.register(newUser, req.body.password, (err) =>

@@ -1,8 +1,7 @@
 <div class="container">
-    <h1>Register</h1>
-
     <div class="row justify-content-center">
         <div class="col-6">
+            <h1>Register</h1>
             <form method="POST">
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
@@ -28,8 +27,11 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-        
-                <button type="submit" class="btn btn-primary">Login</button>
+                
+                <div class="mb-3">
+                    <button id="registerButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-user-plus fa-lg"></i> Register</button>
+                    <a id="cancelButton" href="/login" class="btn btn-warning"><i class="fa-solid fa-rotate-left fa-lg"></i> Cancel</a>
+                </div>
             </form>
         </div>
     </div>

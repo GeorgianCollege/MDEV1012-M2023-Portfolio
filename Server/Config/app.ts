@@ -47,6 +47,26 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+// setup express session
+app.use(session({
+  secret: DB.Secret,
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// implement an Auth Strategy
+passport.use(User.createStrategy());
+
+//User.serializeUser()
+
+// serialize and deserialize the user data
+passport.serializeUser(User.serializeUser() as any);
+passport.deserializeUser(User.deserializeUser());
+
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
