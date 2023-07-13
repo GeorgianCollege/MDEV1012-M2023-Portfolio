@@ -23,13 +23,25 @@
               <a class="nav-link <%= (page == 'projects') ? 'active' : '' %>" aria-current="page" href="/projects"><i class="fa-solid fa-mobile-retro"></i> Projects</a>
             </li>
 
-             <li class="nav-item">
-              <a class="nav-link <%= (page == 'contact-list') ? 'active' : '' %>" aria-current="page" href="/contact-list"><i class="fa-solid fa-address-book"></i> Contact List</a>
-            </li>
+            <% if(displayName) { %>
+              <li class="nav-item">
+                <a class="nav-link <%= (page == 'contact-list') ? 'active' : '' %>" aria-current="page" href="/contact-list"><i class="fa-solid fa-address-book"></i> Contact List</a>
+              </li>
+            <% } %>
 
             <li class="nav-item">
               <a class="nav-link <%= (page == 'contact') ? 'active' : '' %>" aria-current="page" href="/contact"><i class="fa-solid fa-message"></i> Contact</a>
             </li>
+
+             <% if(displayName) { %>
+                    <li id="logout" class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                <% } else { %>
+                    <li id="login" class="nav-item">
+                        <a class="nav-link <%= (page == 'login') ? 'active' : '' %>" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    </li>
+                <% } %>
           </ul>
         </div>
       </div>

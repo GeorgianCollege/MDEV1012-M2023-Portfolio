@@ -6,8 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessLogout = exports.ProcessRegister = exports.DisplayRegisterPage = exports.ProcessLogin = exports.DisplayLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
+const Util_1 = require("../Util");
 function DisplayLoginPage(req, res, next) {
-    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function ProcessLogin(req, res, next) {
@@ -33,7 +34,7 @@ function ProcessLogin(req, res, next) {
 }
 exports.ProcessLogin = ProcessLogin;
 function DisplayRegisterPage(req, res, next) {
-    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage') });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
 function ProcessRegister(req, res, next) {

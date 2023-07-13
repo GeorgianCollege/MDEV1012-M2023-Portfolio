@@ -10,6 +10,8 @@ import { DisplayContactListPage } from '../Controllers/contact';
 // import the auth controller
 import { ProcessLogin, DisplayLoginPage, ProcessLogout, DisplayRegisterPage, ProcessRegister } from '../Controllers/auth';
 
+import { AuthGuard } from '../Util';
+
 /*********************** TOP-LEVEL ROUTES ***********************/
 
 /* GET Default Route */
@@ -51,6 +53,6 @@ router.get('/logout', ProcessLogout);
 /***************** CONTACT MANAGEMENT ROUTES ****************/
 
 /* GET Contact List page - with /contact-list */
-router.get('/contact-list', (req, res, next) => DisplayContactListPage(req, res, next) );
+router.get('/contact-list', AuthGuard, DisplayContactListPage );
 
 export default router;

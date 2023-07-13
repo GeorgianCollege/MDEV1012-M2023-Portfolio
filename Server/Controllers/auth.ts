@@ -4,9 +4,11 @@ import passport from 'passport';
 
 import User from '../Models/user';
 
+import { UserDisplayName } from '../Util';
+
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction)
 {
-    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage') });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: UserDisplayName(req) });
 }
 
 // Process Functions
@@ -46,7 +48,7 @@ export function ProcessLogin(req: Request, res: Response, next: NextFunction): v
 
 export function DisplayRegisterPage(req: Request, res: Response, next: NextFunction)
 {
-    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage') });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: UserDisplayName(req)});
 }
 
 

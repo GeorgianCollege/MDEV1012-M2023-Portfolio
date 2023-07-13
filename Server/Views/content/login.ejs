@@ -5,7 +5,12 @@
 
             <!-- Message Area -->
             <% if(messages.length > 0) { %>
-                <div id="messageArea" class="alert alert-danger">
+                <% if(messages == "User Registered Successfully") { %> 
+                    <div id="messageArea" class="alert alert-success">
+                <% } else { %>
+                    <div id="messageArea" class="alert alert-danger">
+                <% } %>
+
                 <%= messages %>
               </div>
               <% } %>
