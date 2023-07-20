@@ -5,7 +5,7 @@ let router = express.Router();
 import { DisplayHomePage, DisplayAboutPage, DisplayServicesPage, DisplayProjectsPage, DisplayContactPage } from '../Controllers';
 
 // import the Contact controller
-import { DisplayAddPage, DisplayContactListPage, DisplayEditPage, ProcessAddPage, ProcessEditPage } from '../Controllers/contact';
+import { DisplayAddPage, DisplayContactListPage, DisplayEditPage, ProcessAddPage, ProcessDeleteRequest, ProcessEditPage } from '../Controllers/contact';
 
 // import the auth controller
 import { ProcessLogin, DisplayLoginPage, ProcessLogout, DisplayRegisterPage, ProcessRegister } from '../Controllers/auth';
@@ -64,7 +64,10 @@ router.get('/edit/:id', AuthGuard, DisplayEditPage );
 /* POST Add page - with /add */
 router.post('/add', AuthGuard, ProcessAddPage);
 
-/* PUT Edit page - with /edit/:id */
-router.put('/edit/:id', AuthGuard, ProcessEditPage);
+/* POST Edit page - with /edit/:id */
+router.post('/edit/:id', AuthGuard, ProcessEditPage);
+
+/* GET Delete Request - with /delete/:id */
+router.get('/delete/:id', AuthGuard, ProcessDeleteRequest );
 
 export default router;
