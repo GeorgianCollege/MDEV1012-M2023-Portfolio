@@ -5,7 +5,7 @@ let router = express.Router();
 import { DisplayHomePage, DisplayAboutPage, DisplayServicesPage, DisplayProjectsPage, DisplayContactPage } from '../Controllers';
 
 // import the Contact controller
-import { DisplayAddPage, DisplayContactListPage, DisplayEditPage } from '../Controllers/contact';
+import { DisplayAddPage, DisplayContactListPage, DisplayEditPage, ProcessAddPage, ProcessEditPage } from '../Controllers/contact';
 
 // import the auth controller
 import { ProcessLogin, DisplayLoginPage, ProcessLogout, DisplayRegisterPage, ProcessRegister } from '../Controllers/auth';
@@ -60,5 +60,11 @@ router.get('/add', AuthGuard, DisplayAddPage );
 
 /* GET Details page - with /edit/:id */
 router.get('/edit/:id', AuthGuard, DisplayEditPage );
+
+/* POST Add page - with /add */
+router.post('/add', AuthGuard, ProcessAddPage);
+
+/* PUT Edit page - with /edit/:id */
+router.put('/edit/:id', AuthGuard, ProcessEditPage);
 
 export default router;

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayEditPage = exports.DisplayAddPage = exports.DisplayContactListPage = void 0;
+exports.ProcessEditPage = exports.ProcessAddPage = exports.DisplayEditPage = exports.DisplayAddPage = exports.DisplayContactListPage = void 0;
 const contact_1 = __importDefault(require("../Models/contact"));
 const Util_1 = require("../Util");
 function DisplayContactListPage(req, res, next) {
@@ -25,4 +25,24 @@ function DisplayEditPage(req, res, next) {
     res.render('index', { title: 'Edit Contact', page: 'details', contact: '', displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayEditPage = DisplayEditPage;
+function ProcessAddPage(req, res, next) {
+    let contact = new contact_1.default({
+        FirstName: req.body.FirstName,
+        LastName: req.body.LastName,
+        EmailAddress: req.body.EmailAddress,
+        ContactNumber: req.body.ContactNumber
+    });
+    contact_1.default.create(contact)
+        .then(() => {
+        res.redirect('/contact-list');
+    })
+        .catch((err) => {
+        console.log(err);
+        res.end(err);
+    });
+}
+exports.ProcessAddPage = ProcessAddPage;
+function ProcessEditPage(req, res, next) {
+}
+exports.ProcessEditPage = ProcessEditPage;
 //# sourceMappingURL=contact.js.map

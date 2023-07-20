@@ -29,3 +29,29 @@ export function DisplayEditPage(req: express.Request, res: express.Response, nex
 {
   res.render('index', {title: 'Edit Contact', page: 'details', contact: '', displayName: UserDisplayName(req) });
 }
+
+export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+{
+  // add a new contact 
+
+  let contact = new Contact({
+    FirstName: req.body.FirstName,
+    LastName: req.body.LastName,
+    EmailAddress: req.body.EmailAddress,
+    ContactNumber: req.body.ContactNumber
+  });
+
+  Contact.create(contact)
+  .then(()=>{
+    res.redirect('/contact-list');
+  })
+  .catch((err)=>{
+    console.log(err);
+    res.end(err);
+  });
+}
+
+export function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+{
+  
+}
