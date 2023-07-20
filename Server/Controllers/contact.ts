@@ -19,3 +19,13 @@ export function DisplayContactListPage(req: express.Request, res: express.Respon
     console.error(err);
   });
 }
+
+export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+{
+  res.render('index', {title: 'Add New Contact', page: 'details', contact: '', displayName: UserDisplayName(req) });
+}
+
+export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+{
+  res.render('index', {title: 'Edit Contact', page: 'details', contact: '', displayName: UserDisplayName(req) });
+}

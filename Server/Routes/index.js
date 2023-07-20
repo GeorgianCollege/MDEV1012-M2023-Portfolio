@@ -21,5 +21,7 @@ router.post('/register', auth_1.ProcessRegister);
 router.get('/register', auth_1.DisplayRegisterPage);
 router.get('/logout', auth_1.ProcessLogout);
 router.get('/contact-list', Util_1.AuthGuard, contact_1.DisplayContactListPage);
+router.get('/add', Util_1.AuthGuard, contact_1.DisplayAddPage);
+router.get('/edit/:id', Util_1.AuthGuard, contact_1.DisplayEditPage);
 exports.default = router;
 //# sourceMappingURL=index.js.map

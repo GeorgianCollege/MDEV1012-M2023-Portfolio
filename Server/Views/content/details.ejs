@@ -6,31 +6,35 @@
             <form method="POST">
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                    <input type="text" class="form-control" id="firstName" name="FirstName" required
+                    value="<%= contact.FirstName %>">
                 </div>
         
                 <div class="mb-3">
                     <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    <input type="text" class="form-control" id="lastName" name="LastName" required
+                    value="<%= contact.LastName %>">
                 </div>
         
                 <div class="mb-3">
                     <label for="emailAddress" class="form-label">Email Address</label>
-                    <input type="email" class="form-control" id="emailAddress" name="emailAddress" required>
+                    <input type="email" class="form-control" id="emailAddress" name="EmailAddress" required
+                    value="<%= contact.EmailAddress %>">
                 </div>
         
                 <div class="mb-3">
                     <label for="contactNumber" class="form-label">Contact Number</label>
-                    <input type="tel" class="form-control" id="contactNumber" name="contactNumber" required>
+                    <input type="tel" class="form-control" id="contactNumber" name="ContactNumber" required
+                    value="<%= contact.ContactNumber %>">
                 </div>
                 
                 <div class="mb-3">
-                <% if(page == "add") { %>
-                    <button id="addButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-square-plus fa-lg"></i> Add</button>
+                <% if(title == "Add New Contact") { %>
+                    <button id="addButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-square-plus fa-lg"></i> Add Contact</button>
                 <%  } else { %>
-                    <button id="editButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-lg"></i> Edit</button>
+                    <button id="editButton" type="submit" class="btn btn-primary"><i class="fa-solid fa-pen-to-square fa-lg"></i> Edit Contact</button>
                 <% } %>
-                    <a id="cancelButton" href="/login" class="btn btn-warning"><i class="fa-solid fa-rotate-left fa-lg"></i> Cancel</a>
+                    <a id="cancelButton" href="/contact-list" class="btn btn-warning"><i class="fa-solid fa-rotate-left fa-lg"></i> Cancel</a>
                 </div>
             </form>
         </div>
